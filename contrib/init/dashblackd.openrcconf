@@ -1,0 +1,26 @@
+# /etc/conf.d/dashblackd: config file for /etc/init.d/dashblackd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/dashblack/dashblack.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/dashblackd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/dashblackd.pid"
+
+# Where to write dashblackd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/dashblackd"
+
+# User and group to own dashblackd process
+#BITCOIND_USER="dashblack"
+#BITCOIND_GROUP="dashblack"
+
+# Path to dashblackd executable
+#BITCOIND_BIN="/usr/bin/dashblackd"
+
+# Nice value to run dashblackd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

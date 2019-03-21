@@ -1,0 +1,26 @@
+[Unit]
+Description=Dash Black's distributed currency daemon
+After=network.target
+
+[Service]
+User=dashblack
+Group=dashblack
+
+Type=forking
+PIDFile=/var/lib/dashblackd/dashblackd.pid
+
+ExecStart=/usr/bin/dashblackd -daemon -pid=/var/lib/dashblackd/dashblackd.pid \
+          -conf=/etc/dashblack/dashblack.conf -datadir=/var/lib/dashblackd
+
+ExecStop=-/usr/bin/dashblack-cli -conf=/etc/dashblack/dashblack.conf \
+         -datadir=/var/lib/dashblackd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
